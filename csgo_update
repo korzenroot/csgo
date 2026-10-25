@@ -10,10 +10,11 @@ rm DepotDownloader
 mkdir -p ~/.local/share/Steam/linux64
 wget -O - https://github.com/Detanup01/gbe_fork/releases/latest/download/emu-linux-release.tar.bz2 | bsdtar xf - --strip-components=3 -C ~/.local/share/Steam/linux64 release/regular/x64/steamclient.so
 if [ -d csgo_gc ]; then
-    wget -O - https://github.com/mikkokko/csgo_gc/releases/latest/download/csgo_gc-ubuntu-latest.zip | bsdtar xf - csgo_linux64
+    targets="csgo_linux64"
 else
-    wget -O - https://github.com/mikkokko/csgo_gc/releases/latest/download/csgo_gc-ubuntu-latest.zip | bsdtar xf - csgo_linux64 csgo_gc/*
+    targets="csgo_gc/* csgo_linux64"
 fi
+wget -O - https://github.com/mikkokko/csgo_gc/releases/latest/download/csgo_gc-ubuntu-latest.zip | bsdtar xf - $targets
 chmod +x csgo_linux64
 
 wget -O - https://repo.steampowered.com/steamrt-images-scout/snapshots/latest-public-stable/steam-runtime.tar.xz | bsdtar xf -
