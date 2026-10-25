@@ -3,8 +3,8 @@ set -e
 
 wget -O - https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownloader_3.4.0/DepotDownloader-linux-x64.zip | bsdtar xf - DepotDownloader
 chmod +x DepotDownloader
-./DepotDownloader -app 730 -depot 731 -manifest 1224088799001669801 -branch csgo -dir .
-echo 'regex:^(?!bin/libgcc_s\.so\.1|bin/steamclient.so|srcds_linux)' | ./DepotDownloader -app 740 -depot 740 -manifest 6998097922547485721 -dir . -filelist /dev/stdin
+./DepotDownloader -app 730 -depot 731 -branch csgo -dir .
+echo 'regex:^(?!bin/libgcc_s\.so\.1|bin/steamclient.so|srcds_linux)' | ./DepotDownloader -app 740 -depot 740 -dir . -filelist /dev/stdin
 rm DepotDownloader
 chmod +x srcds_run
 
