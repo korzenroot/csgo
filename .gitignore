@@ -1,0 +1,5 @@
+*
+!.gitignore
+!csgo_run
+!csgo_update
+!srcds_update

@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+wget -O - https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownloader_3.4.0/DepotDownloader-linux-x64.zip | bsdtar xf - DepotDownloader
+chmod +x DepotDownloader
+./DepotDownloader -app 730 -depot 731 -manifest 1224088799001669801 -branch csgo -dir .
+echo 'regex:^(?!bin/libgcc_s\.so\.1|bin/steamclient.so|srcds_linux)' | ./DepotDownloader -app 740 -depot 740 -manifest 6998097922547485721 -dir . -filelist /dev/stdin
+rm DepotDownloader
+chmod +x srcds_run
+
+wget -O - https://github.com/Detanup01/gbe_fork/releases/download/release-2026_09_27/emu-linux-release.tar.bz2 | bsdtar xf - --strip-components=3 -C bin release/regular/x86/steamclient.so
+wget -O - https://github.com/mikkokko/csgo_gc/releases/download/continuous/csgo_gc-ubuntu-latest.zip | bsdtar xf - srcds_linux
+chmod +x srcds_linux

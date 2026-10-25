@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+wget -O - https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownloader_3.4.0/DepotDownloader-linux-x64.zip | bsdtar xf - DepotDownloader
+chmod +x DepotDownloader
+./DepotDownloader -app 730 -depot 731 -manifest 1224088799001669801 -branch csgo -dir .
+echo 'regex:^(?!csgo_linux64)' | ./DepotDownloader -app 730 -depot 734 -manifest 3343055176458696864 -branch csgo -username $1 -password $2 -dir . -filelist /dev/stdin
+rm DepotDownloader
+
+mkdir -p ~/.local/share/Steam/linux64
+wget -O - https://github.com/Detanup01/gbe_fork/releases/download/release-2026_09_27/emu-linux-release.tar.bz2 | bsdtar xf - --strip-components=3 -C ~/.local/share/Steam/linux64 release/regular/x64/steamclient.so
+if [ -e csgo_gc ]; then
+    wget -O - https://github.com/mikkokko/csgo_gc/releases/download/continuous/csgo_gc-ubuntu-latest.zip | bsdtar xf - csgo_linux64
+else
+    wget -O - https://github.com/mikkokko/csgo_gc/releases/download/continuous/csgo_gc-ubuntu-latest.zip | bsdtar xf - csgo_linux64 csgo_gc/*
+fi
+chmod +x csgo_linux64
+
+wget -O - https://repo.steampowered.com/steamrt-images-scout/snapshots/latest-public-stable/steam-runtime.tar.xz | bsdtar xf -
