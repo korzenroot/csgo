@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -eu
 
 wget -O - https://github.com/SteamRE/DepotDownloader/releases/latest/download/DepotDownloader-linux-x64.zip | bsdtar xf - DepotDownloader
 chmod +x DepotDownloader
