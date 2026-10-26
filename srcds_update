@@ -1,13 +1,13 @@
 #!/bin/sh
 set -eu
 
-wget -O - https://github.com/SteamRE/DepotDownloader/releases/latest/download/DepotDownloader-linux-x64.zip | bsdtar xf - DepotDownloader
+curl -L https://github.com/SteamRE/DepotDownloader/releases/latest/download/DepotDownloader-linux-x64.zip | bsdtar xf - DepotDownloader
 chmod +x DepotDownloader
 ./DepotDownloader -app 730 -depot 731 -branch csgo -dir .
 echo 'regex:^(?!bin/libgcc_s\.so\.1|bin/steamclient.so|srcds_linux)' | ./DepotDownloader -app 740 -depot 740 -dir . -filelist /dev/stdin
 rm DepotDownloader
 chmod +x srcds_run
 
-wget -O - https://github.com/Detanup01/gbe_fork/releases/latest/download/emu-linux-release.tar.bz2 | bsdtar xf - --strip-components=3 -C bin release/regular/x86/steamclient.so
-wget -O - https://github.com/mikkokko/csgo_gc/releases/latest/download/csgo_gc-ubuntu-latest.zip | bsdtar xf - srcds_linux
+curl -L https://github.com/Detanup01/gbe_fork/releases/latest/download/emu-linux-release.tar.bz2 | bsdtar xf - --strip-components=3 -C bin release/regular/x86/steamclient.so
+curl -L https://github.com/GT-610/csgo-gc/releases/latest/download/csgo_gc-ubuntu-latest.zip | bsdtar xf - srcds_linux
 chmod +x srcds_linux
