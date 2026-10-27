@@ -1,4 +1,3 @@
 #!/bin/sh
-set -eu
 
 steam-runtime/run.sh ./csgo.sh -steam "$@"
