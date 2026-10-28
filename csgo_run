@@ -1,3 +1,3 @@
 #!/bin/sh
 
-steam-runtime/run.sh ./csgo.sh -steam "$@"
+HOME=. steam-runtime/run.sh ./csgo.sh -steam "$@"
