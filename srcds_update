@@ -7,6 +7,6 @@ chmod +x /tmp/DepotDownloader
 echo 'regex:^(?!bin/libgcc_s\.so\.1|bin/steamclient.so|srcds_linux)' | /tmp/DepotDownloader -app 740 -depot 740 -dir . -filelist /dev/stdin
 chmod +x srcds_run
 
-curl -L https://github.com/Detanup01/gbe_fork/releases/latest/download/emu-linux-release.tar.bz2 | bsdtar xf - --strip-components=3 -C bin release/regular/x86/steamclient.so
+curl -L https://github.com/Detanup01/gbe_fork/releases/latest/download/emu-linux-release.tar.bz2 | bsdtar xf - --strip-components=3 -C bin */regular/x86/steamclient.so
 curl -L https://github.com/GT-610/csgo-gc/releases/latest/download/csgo_gc-ubuntu-latest.zip | bsdtar xf - srcds_linux
 chmod +x srcds_linux
