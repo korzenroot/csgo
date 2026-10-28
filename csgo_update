@@ -11,4 +11,4 @@ curl -L https://github.com/Detanup01/gbe_fork/releases/latest/download/emu-linux
 curl -L https://github.com/GT-610/csgo-gc/releases/latest/download/csgo_gc-ubuntu-latest.zip | bsdtar xf - csgo_gc csgo_linux64
 chmod +x csgo_linux64
 
-curl -L https://repo.steampowered.com/steamrt-images-scout/snapshots/latest-public-stable/steam-runtime.tar.xz | bsdtar xf -
+curl -L https://repo.steampowered.com/steamrt-images-scout/snapshots/latest-public-beta/steam-runtime.tar.xz | bsdtar xf -
